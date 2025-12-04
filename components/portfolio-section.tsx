@@ -16,12 +16,15 @@ export function PortfolioSection() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
   const [showTooltip, setShowTooltip] = useState(false)
   const locale = useLocale() as Locale
+  const isEnglish = locale === "en"
 
   const projects = [
     {
       title: "學習平台的評價流程優化",
-      description:
-        "透過重新定義評價機制，成功將高星評價中夾雜的負面評論分流，提升 2.9% 產品轉換率。\nOptimizing Review Process for Learning Platform. Redefined review mechanism to filter negative feedback from high-rated reviews, increasing product conversion rate by 2.9%.",
+      titleEn: "Optimizing Review Process for Learning Platform",
+      description: "透過重新定義評價機制，成功將高星評價中夾雜的負面評論分流，提升 2.9% 產品轉換率。",
+      descriptionEn:
+        "Redefined the review mechanism to filter negative feedback from high-rated reviews, increasing product conversion rate by 2.9%.",
       image: "/images/RO002.png",
       backgroundColor: "#FFF3EC",
       tags: ["功能規劃", "數據分析", "成長策略"],
@@ -32,8 +35,10 @@ export function PortfolioSection() {
     },
     {
       title: "價格方案介面改版優化",
-      description:
-        "透過定義關鍵訊息並調整資訊層級，提升行銷素材效果，使促銷組合優惠轉換率成長 2%。\nPricing Plan Interface Optimization. Defined key messages and refined information hierarchy to improve marketing clarity, resulting in a 2% increase in promotional bundle conversions.",
+      titleEn: "Pricing Plan Interface Optimization",
+      description: "透過定義關鍵訊息並調整資訊層級，提升行銷素材效果，使促銷組合優惠轉換率成長 2%。",
+      descriptionEn:
+        "Defined key messages and refined information hierarchy to improve marketing clarity, resulting in a 2% increase in promotional bundle conversions.",
       image: "/images/PRICE003.png",
       backgroundColor: "#F0F4FF",
       tags: ["價格策略", "方案設計", "成長策略"],
@@ -43,8 +48,10 @@ export function PortfolioSection() {
     },
     {
       title: "資安專案服務的產品化規劃",
-      description:
-        "定義產品策略與定位，為弱點掃描服務打造可複用、可擴展的產品模式。\nProductizing Security Service Engagements. Defined product strategy and positioning to create a repeatable, scalable model for delivering vulnerability scanning services.",
+      titleEn: "Productizing Security Service Engagements",
+      description: "定義產品策略與定位，為弱點掃描服務打造可複用、可擴展的產品模式。",
+      descriptionEn:
+        "Defined product strategy and positioning to create a repeatable, scalable model for delivering vulnerability scanning services.",
       image: "/images/VM001.png",
       backgroundColor: "#F4F8FF",
       tags: ["0 到 1 產品開發", "市場研究", "產品策略"],
@@ -56,8 +63,10 @@ export function PortfolioSection() {
     },
     {
       title: "重新設計遠距情侶的溝通體驗",
-      description:
-        "主導完整的使用者研究流程，並將分析結果轉換為產品策略和功能設計。\nRedesigning the communication experience for long-distance couples. Led the full user research process and translated insights into product strategies and functional design.",
+      titleEn: "Redesigning the Communication Experience for Long-distance Couples",
+      description: "主導完整的使用者研究流程，並將分析結果轉換為產品策略和功能設計。",
+      descriptionEn:
+        "Led the full user research process and translated insights into product strategies and functional design.",
       image: "/images/LD00.png",
       backgroundColor: "#FFF3EC",
       tags: ["使用者研究", "設計思考", "UI/UX 設計"],
@@ -69,8 +78,10 @@ export function PortfolioSection() {
     },
     {
       title: "AI 廣告管理產品 UI/UX 優化",
-      description:
-        "解決資料欄位擴增造成的易用性問題，重新設計資訊架構提升操作效率。\nAI Ad Management Product UI/UX Optimization. Solved usability issues from expanding data fields by redesigning information architecture to improve operational efficiency.",
+      titleEn: "AI Ad Management Product UI/UX Optimization",
+      description: "解決資料欄位擴增造成的易用性問題，重新設計資訊架構提升操作效率。",
+      descriptionEn:
+        "Solved usability issues from expanding data fields by redesigning information architecture to improve operational efficiency.",
       image: "/images/AM00.png",
       backgroundColor: "#E1F4FF",
       tags: ["產品設計", "使用者體驗優化", "UI/UX 設計"],
@@ -138,6 +149,9 @@ export function PortfolioSection() {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
           {filteredProjects.map((project, index) => {
+            const displayTitle = isEnglish && project.titleEn ? project.titleEn : project.title
+            const displayDescription =
+              isEnglish && project.descriptionEn ? project.descriptionEn : project.description
             const categoryLabel = project.tags[0] ?? "Project"
             const additionalTags = project.tags.slice(1)
             const baseClasses =
@@ -159,7 +173,7 @@ export function PortfolioSection() {
                 >
                   <Image
                     src={project.image}
-                    alt={project.title}
+                    alt={displayTitle}
                     fill
                     className={project.imagePadding ? `object-contain ${project.imagePadding}` : "object-contain"}
                     sizes="(min-width: 1024px) 360px, 100vw"
@@ -179,9 +193,9 @@ export function PortfolioSection() {
                     </div>
                   )}
                   <h3 className="font-semibold text-xl text-gray-900 leading-tight line-clamp-2">
-                    {project.title}
+                    {displayTitle}
                   </h3>
-                  <p className="text-sm text-gray-600 leading-relaxed line-clamp-2">{project.description}</p>
+                  <p className="text-sm text-gray-600 leading-relaxed line-clamp-2">{displayDescription}</p>
                   <div className="mt-auto text-xs text-[#6B7280] flex items-center gap-2">
                     <span>{project.year}</span>
                     <span aria-hidden="true">•</span>

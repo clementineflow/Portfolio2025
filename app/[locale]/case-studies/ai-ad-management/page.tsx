@@ -87,8 +87,12 @@ export default async function AIAdManagementCaseStudy({ params }: CaseStudyPageP
                     </div>
                   </div>
                   <div className="md:col-span-2 mt-8 md:mt-16">
-                    <div className="w-full h-64 bg-gray-200/50 rounded-lg flex items-center justify-center">
-                      <p className="text-gray-400">Image Placeholder</p>
+                    <div className="w-full h-64 bg-gray-200/50 rounded-lg overflow-hidden">
+                      <img
+                        src="/images/截圖 2025-12-04 下午4.24.16.png"
+                        alt="AI 廣告管理系統介面示意"
+                        className="h-full w-full object-cover"
+                      />
                     </div>
                   </div>
                 </div>
@@ -263,8 +267,12 @@ export default async function AIAdManagementCaseStudy({ params }: CaseStudyPageP
                   </div>
                 </div>
                 <div className="md:col-span-2 mt-8 md:mt-16">
-                  <div className="w-full h-64 bg-gray-200/50 rounded-lg flex items-center justify-center">
-                    <p className="text-gray-400">Image Placeholder</p>
+                  <div className="w-full h-64 bg-gray-200/50 rounded-lg overflow-hidden">
+                    <img
+                      src="/images/截圖 2025-12-04 下午4.24.16.png"
+                      alt="AI ad management interface redesign"
+                      className="h-full w-full object-cover"
+                    />
                   </div>
                 </div>
               </div>
