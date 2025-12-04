@@ -1,11 +1,13 @@
 // next-intl.config.ts
-import type { NextIntlConfig } from 'next-intl'
+import type { RoutingConfig } from "next-intl/routing"
 
-const config: NextIntlConfig = {
-  locales: ['en', 'zh'],
-  defaultLocale: 'en',
-  localePrefix: 'as-needed', // / uses en, /zh uses zh
+import { defaultLocale, locales } from "./lib/i18n/config"
+
+const config = {
+  locales,
+  defaultLocale,
+  localePrefix: "as-needed", // / uses en, /zh uses zh
   localeDetection: false, // no Accept-Language or NEXT_LOCALE cookie
-}
+} satisfies RoutingConfig<typeof locales, "as-needed", never, undefined>
 
 export default config

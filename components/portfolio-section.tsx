@@ -111,7 +111,7 @@ export function PortfolioSection() {
   const filteredProjects =
     activeFilter === "All"
       ? projects
-      : projects.filter((project) => project.categories?.includes(activeFilter))
+      : projects.filter((project) => (project.categories as string[] | undefined)?.includes(activeFilter))
 
   return (
     <section id="work" className="py-24 px-6 bg-muted/30">
@@ -171,7 +171,7 @@ export function PortfolioSection() {
                       {[categoryLabel, ...additionalTags].map((tag, tagIndex) => (
                         <span
                           key={`${tag}-${tagIndex}`}
-                          className="inline-flex items-center bg-[#E6F9EE] text-[#14744A] text-xs font-medium px-3 py-1 rounded-full"
+                          className="inline-flex items-center bg-[#F5F7FA] text-[#4B5563] text-xs font-medium px-3 py-1 rounded-full"
                         >
                           {tag}
                         </span>

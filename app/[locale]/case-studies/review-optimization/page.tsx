@@ -7,13 +7,12 @@ import Link from "next/link"
 import type { Locale } from "@/lib/i18n/config"
 import { prefixPathWithLocale } from "@/lib/i18n/routing"
 
-type CaseStudyPageProps =
-  | { params: { locale: Locale } }
-  | { params: Promise<{ locale: Locale }> }
+type CaseStudyPageProps = {
+  params: Promise<{ locale: Locale }>
+}
 
-export default async function FinalCaseStudy(props: CaseStudyPageProps) {
-  const resolvedParams = await props.params
-  const { locale } = resolvedParams
+export default async function FinalCaseStudy({ params }: CaseStudyPageProps) {
+  const { locale } = await params
   const isZh = locale === "zh"
   const homeHref = prefixPathWithLocale(locale)
 
