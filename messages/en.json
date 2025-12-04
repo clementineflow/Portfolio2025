@@ -1,0 +1,27 @@
+{
+  "Navigation": {
+    "work": "WORK",
+    "contact": "CONTACT"
+  },
+  "Hero": {
+    "badge": "Hey I'm Ting An",
+    "title": "Love to craft meaningful products, strategies and experiences.",
+    "location": "A Product Manager based in Taiwan",
+    "availability": "Available for freelance projects",
+    "cta": "Check out my work"
+  },
+  "Contact": {
+    "title": "Contact Me",
+    "body": "I enjoy connecting with people who care about building better products.\nAlways happy to chat about products, ideas, or new possibilities!",
+    "linkedin": "Linkedin",
+    "email": "Email",
+    "resumeCta": "See Resume"
+  },
+  "Footer": {
+    "title": "Let's Connect",
+    "description": "Ready to discuss your next product challenge?",
+    "resumeCta": "履歷下載",
+    "linkedinCta": "LinkedIn",
+    "copyright": "© 2025 Ting An. Built with passion for great product experiences."
+  }
+}
