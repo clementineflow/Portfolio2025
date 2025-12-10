@@ -41,11 +41,11 @@ export default function Navigation() {
 
   return (
     <nav
-      className={`fixed left-0 right-0 top-0 z-50 bg-background/95 backdrop-blur-sm transition-transform duration-300 ${
-        isVisible ? "translate-y-0" : "-translate-y-full"
-      }`}
-    >
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-8">
+  className={`fixed left-0 right-0 top-0 z-50 bg-background/95 backdrop-blur-sm transition-transform duration-300 ${
+    isVisible ? "translate-y-0" : "-translate-y-full"
+  }`}
+>
+  <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-5 md:py-8">
         <Link
           href={homeHref}
           className="text-sm font-semibold uppercase tracking-[0.35em] text-[#666666] transition-colors hover:text-foreground"
