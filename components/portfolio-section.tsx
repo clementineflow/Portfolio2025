@@ -73,7 +73,7 @@ export function PortfolioSection() {
       categories: ["使用者研究與體驗優化"],
       imagePadding: "p-2",
       readTime: "5 min read",
-      link: "/case-studies/love-distance4",
+      link: "/case-studies/love-distance",
       year: "2023",
     },
     {
