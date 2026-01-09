@@ -24,7 +24,7 @@ export default async function AIAdManagementCaseStudy({ params }: CaseStudyPageP
           <section className="bg-[linear-gradient(to_bottom,_#ffffff_0%,_#ffffff_70%,_#ECF0FF_100%)] pt-16 pb-12 md:pt-24 md:pb-20">
             <div className="max-w-4xl mx-auto px-6 text-center">
               <Badge className="mb-4 bg-blue-600 text-white hover:bg-blue-700 px-4 py-1 text-sm">產品經理實習專案</Badge>
-              <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight text-gray-800">
+              <h1 className="text-2xl md:text-5xl font-bold mb-0 md:mb-6 leading-tight text-gray-800">
                 AI 廣告管理產品
                 <br />
                 <span className="text-blue-600">提升內部系統的使用效率</span>
@@ -206,7 +206,7 @@ export default async function AIAdManagementCaseStudy({ params }: CaseStudyPageP
         <section className="bg-[linear-gradient(to_bottom,_#ffffff_0%,_#ffffff_70%,_#ECF0FF_100%)] pt-16 pb-12 md:pt-24 md:pb-20">
           <div className="max-w-4xl mx-auto px-6 text-center">
             <Badge className="mb-4 bg-blue-600 text-white hover:bg-blue-700 px-4 py-1 text-sm">PM Internship Project</Badge>
-            <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight text-gray-800">
+            <h1 className="text-2xl md:text-5xl font-bold mb-0 md:mb-6 leading-tight text-gray-800">
               Improving Usability and Efficiency of
               <br />
               <span className="text-blue-600">Internal AI Ad Management System</span>

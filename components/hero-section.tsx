@@ -35,11 +35,10 @@ export function HeroSection() {
 
 <div className="space-y-2 pt-2">
   {/* --- LOCATION Row --- */}
-  <div className="flex items-center gap-2 leading-none">
-    {/* Icon wrapper with a fixed width */}
-    <div className="flex h-full w-4 items-center justify-center">
+  <div className="flex items-center gap-2">
+    <div className="flex w-4 shrink-0 items-center justify-center">
       <svg
-        className="h-3.5 w-3.5 flex-shrink-0 text-muted-foreground"
+        className="h-3.5 w-3.5 text-muted-foreground"
         fill="none"
         stroke="currentColor"
         viewBox="0 0 24 24"
@@ -59,19 +58,15 @@ export function HeroSection() {
         />
       </svg>
     </div>
-    <span className="text-sm text-muted-foreground">{t("location")}</span>
+    <p className="text-sm text-neutral-600 leading-snug">{t("location")}</p>
   </div>
 
   {/* --- AVAILABLE Row --- */}
-  <div className="flex items-center gap-2 leading-none">
-    {/* Icon wrapper with the same fixed width for alignment */}
-    <div className="flex h-full w-4 items-center justify-center">
-      <span
-        className="h-2 w-2 flex-shrink-0 rounded-full bg-green-500 animate-pulse"
-        aria-hidden="true"
-      />
+  <div className="flex items-center gap-2">
+    <div className="flex w-4 shrink-0 items-center justify-center">
+      <span className="h-2 w-2 rounded-full bg-emerald-400" />
     </div>
-    <span className="text-sm text-muted-foreground">{t("availability")}</span>
+    <p className="text-sm text-neutral-600 leading-snug">{t("availability")}</p>
   </div>
 </div>
           <div className="pt-2">

@@ -28,6 +28,7 @@ export function PortfolioSection() {
       image: "/images/RO002.png",
       backgroundColor: "#FFF3EC",
       tags: ["功能規劃", "數據分析", "成長策略"],
+      tagsEn: ["Feature Planning", "Data Analysis", "Growth Strategy"],
       categories: ["產品策略規劃"],
       year: "2024",
       readTime: "5 min read",
@@ -41,7 +42,8 @@ export function PortfolioSection() {
         "Defined key messages and refined information hierarchy to improve marketing clarity, resulting in a 2% increase in promotional bundle conversions.",
       image: "/images/PRICE003.png",
       backgroundColor: "#F0F4FF",
-      tags: ["價格策略", "方案設計", "成長策略"],
+      tags: ["使用者體驗優化", "使用者研究", "數據分析"],
+      tagsEn: ["UX Optimization", "User Research", "Data Analysis"],
       categories: [],
       year: "2025",
       readTime: "in development",
@@ -55,6 +57,7 @@ export function PortfolioSection() {
       image: "/images/VM001.png",
       backgroundColor: "#F4F8FF",
       tags: ["0 到 1 產品開發", "市場研究", "產品策略"],
+      tagsEn: ["0-to-1 Product Development", "Market Research", "Product Strategy"],
       categories: ["產品策略規劃", "B2B SaaS"],
       imagePadding: "p-4",
       year: "2024",
@@ -70,6 +73,7 @@ export function PortfolioSection() {
       image: "/images/LD00.png",
       backgroundColor: "#FFF3EC",
       tags: ["使用者研究", "設計思考", "UI/UX 設計"],
+      tagsEn: ["User Research", "Design Thinking", "UI/UX Design"],
       categories: ["使用者研究與體驗優化"],
       imagePadding: "p-2",
       readTime: "5 min read",
@@ -85,6 +89,7 @@ export function PortfolioSection() {
       image: "/images/AM00.png",
       backgroundColor: "#E1F4FF",
       tags: ["產品設計", "使用者體驗優化", "UI/UX 設計"],
+      tagsEn: ["Product Design", "UX Optimization", "UI/UX Design"],
       categories: ["B2B SaaS", "使用者研究與體驗優化"],
       link: "/case-studies/ai-ad-management",
       year: "2023",
@@ -95,6 +100,7 @@ export function PortfolioSection() {
   const handleWorkInProgressClick = (e: React.MouseEvent) => {
     e.preventDefault()
     e.stopPropagation()
+    setShowTooltip(false)
     console.log("[v0] Work in progress card clicked")
     toast({
       title: "Still Cooking! 🍳",
@@ -117,7 +123,12 @@ export function PortfolioSection() {
     setShowTooltip(false)
   }
 
-  const filterCategories = ["All", "產品策略規劃", "B2B SaaS", "使用者研究與體驗優化"]
+  const filterCategories = [
+    { id: "All", label: "All", labelEn: "All" },
+    { id: "產品策略規劃", label: "產品策略規劃", labelEn: "Product Strategy & Planning" },
+    { id: "B2B SaaS", label: "B2B SaaS", labelEn: "B2B SaaS" },
+    { id: "使用者研究與體驗優化", label: "使用者研究與體驗優化", labelEn: "User Research & UX Optimization" },
+  ]
 
   const filteredProjects =
     activeFilter === "All"
@@ -134,15 +145,15 @@ export function PortfolioSection() {
         <div className="flex flex-wrap justify-center gap-3 mb-12">
           {filterCategories.map((category) => (
             <button
-              key={category}
-              onClick={() => setActiveFilter(category)}
+              key={category.id}
+              onClick={() => setActiveFilter(category.id)}
               className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 cursor-pointer ${
-                activeFilter === category
+                activeFilter === category.id
                   ? "bg-foreground text-background"
                   : "bg-background text-foreground hover:bg-muted border border-border/50"
               }`}
             >
-              {category}
+              {isEnglish ? category.labelEn : category.label}
             </button>
           ))}
         </div>
@@ -152,8 +163,10 @@ export function PortfolioSection() {
             const displayTitle = isEnglish && project.titleEn ? project.titleEn : project.title
             const displayDescription =
               isEnglish && project.descriptionEn ? project.descriptionEn : project.description
-            const categoryLabel = project.tags[0] ?? "Project"
-            const additionalTags = project.tags.slice(1)
+            
+            const displayTags = isEnglish && project.tagsEn ? project.tagsEn : project.tags
+            const categoryLabel = displayTags[0] ?? "Project"
+            const additionalTags = displayTags.slice(1)
             const baseClasses =
               "bg-white rounded-xl shadow-[0_4px_10px_rgba(16,24,40,0.06)] hover:-translate-y-1 hover:shadow-[0_8px_20px_rgba(16,24,40,0.12)] transition-all duration-300 group overflow-hidden h-full flex flex-col"
 

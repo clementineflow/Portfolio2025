@@ -1,7 +1,17 @@
-import { useTranslations } from "next-intl"
+"use client"
+
+import { useTranslations, useLocale } from "next-intl"
 
 export default function ContactSection() {
   const t = useTranslations("Contact")
+  const locale = useLocale()
+
+  const resumeUrlEn =
+    "https://drive.google.com/file/d/1sbtJ9r35sv6K6IBxgP9zvvTHJjgAtW8o/view?usp=sharing"
+  const resumeUrlZh =
+    "https://drive.google.com/file/d/1VxURWtb7mIKEtFq2gPbk09wpb-L8SG-D/view?usp=sharing"
+
+  const resumeUrl = locale === "en" ? resumeUrlEn : resumeUrlZh
 
   return (
     <section id="contact" className="py-20 px-6">
@@ -24,7 +34,7 @@ export default function ContactSection() {
             </a>
           </div>
           <a
-            href="https://drive.google.com/file/d/1VxURWtb7mIKEtFq2gPbk09wpb-L8SG-D/view?usp=sharing"
+            href={resumeUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="bg-foreground text-background px-8 py-3 hover:bg-foreground/90 transition-colors rounded-full"

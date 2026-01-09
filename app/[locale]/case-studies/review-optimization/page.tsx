@@ -26,7 +26,7 @@ export default async function FinalCaseStudy({ params }: CaseStudyPageProps) {
             <Badge className="mb-4 bg-[#F6AD55] text-white px-4 py-1 text-sm">
               產品經理案例研究
             </Badge>
-            <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight text-gray-800">
+            <h1 className="text-2xl md:text-5xl font-bold mb-0 md:mb-6 leading-tight text-gray-800">
               B2B2C 學習平台
               <br />
               <span className="text-[#F6AD55]">評價流程優化</span>
@@ -272,7 +272,7 @@ export default async function FinalCaseStudy({ params }: CaseStudyPageProps) {
                   <div className="text-sm text-gray-500 font-light">（上線前三個月/後三個月後比較）</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-[#F6AD55] mb-4 text-2xl font-semibold">7%</div>
+                  <div className="text-[#F6AD55] mb-4 text-2xl font-semibold">+2.9%</div>
                   <div className="text-[#F6AD55] mb-2 font-semibold">Goal Metric</div>
                   <div className="text-gray-600 mb-1">該產品轉換率提升比例</div>
                   <div className="text-gray-500 font-light text-xs">（上線一個月前/四個月後比較）</div>
@@ -368,7 +368,7 @@ export default async function FinalCaseStudy({ params }: CaseStudyPageProps) {
             <Badge className="mb-4 bg-[#F6AD55] text-white px-4 py-1 text-sm">
               Product Management Case Study
             </Badge>
-            <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight text-gray-800">
+            <h1 className="text-2xl md:text-5xl font-bold mb-0 md:mb-6 leading-tight text-gray-800">
               B2B2C Learning Platform
               <br />
               <span className="text-[#F6AD55]">Review Workflow Optimization</span>
@@ -609,7 +609,7 @@ export default async function FinalCaseStudy({ params }: CaseStudyPageProps) {
                   <div className="text-sm text-gray-500 font-light">(3 months before vs. 3 months after launch)</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-[#F6AD55] mb-4 text-2xl font-semibold">7%</div>
+                  <div className="text-[#F6AD55] mb-4 text-2xl font-semibold">+2.9%</div>
                   <div className="text-[#F6AD55] mb-2 font-semibold">Goal Metric</div>
                   <div className="text-gray-600 mb-1">Product conversion rate increase</div>
                   <div className="text-gray-500 font-light text-xs">(1 month before vs. 4 months after launch)</div>

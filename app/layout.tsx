@@ -7,6 +7,13 @@ export const metadata: Metadata = {
   description:
     "Senior Product Manager skilled in turning user insights and data into effective product strategies and design.",
   generator: "v0.app",
+  openGraph: {
+    images: "/images/OGimage.png",
+  },
+  icons: {
+    icon: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
+  },
 }
 
 export default function RootLayout({

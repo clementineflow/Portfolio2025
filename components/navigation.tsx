@@ -1,5 +1,6 @@
 "use client"
 
+import Image from "next/image"
 import Link from "next/link"
 import { useLocale, useTranslations } from "next-intl"
 import { useEffect, useState } from "react"
@@ -41,22 +42,22 @@ export default function Navigation() {
 
   return (
     <nav
-  className={`fixed left-0 right-0 top-0 z-50 bg-background/95 backdrop-blur-sm transition-transform duration-300 ${
-    isVisible ? "translate-y-0" : "-translate-y-full"
-  }`}
->
-  <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-5 md:py-8">
+      className={`fixed left-0 right-0 top-0 z-50 transition-transform duration-300 ${
+        isVisible ? "translate-y-0" : "-translate-y-full"
+      } bg-white/80 backdrop-blur-md`}
+    >
+      <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-3 md:py-8">
         <Link
           href={homeHref}
-          className="text-sm font-semibold uppercase tracking-[0.35em] text-[#666666] transition-colors hover:text-foreground"
+          className="transition-colors hover:opacity-80"
         >
-          TING
+          <Image src="/apple-touch-icon.png" alt="Logo" width={32} height={32} className="h-8 w-8" />
         </Link>
         <div className="flex items-center gap-6 text-sm font-medium tracking-wide text-[#666666]">
-          <Link href={workHref} className="transition-colors hover:text-foreground">
+          <Link href={workHref} className="hidden md:block transition-colors hover:text-foreground">
             {t("work")}
           </Link>
-          <Link href={contactHref} className="transition-colors hover:text-foreground">
+          <Link href={contactHref} className="hidden md:block transition-colors hover:text-foreground">
             {t("contact")}
           </Link>
           <LanguageSwitcher className="flex items-center gap-2 text-sm font-medium uppercase text-[#666666] transition-colors hover:text-foreground" />
