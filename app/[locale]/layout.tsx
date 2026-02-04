@@ -6,6 +6,7 @@ import { notFound } from "next/navigation"
 import Navigation from "@/components/navigation"
 import { Toaster } from "@/components/ui/toaster"
 import { ThemeProvider } from "@/components/theme-provider"
+import { AnalyticsProvider } from "@/components/analytics-provider"
 import { isLocale, locales, type Locale } from "@/lib/i18n/config"
 
 type LocaleLayoutProps = {
@@ -39,11 +40,13 @@ export default async function LocaleLayout(props: LocaleLayoutProps) {
   return (
     <NextIntlClientProvider locale={locale} messages={messages}>
       <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-        <div className="flex min-h-screen flex-col font-sans overflow-y-auto overflow-x-hidden md:overflow-x-visible">
-          <Navigation />
-          <div className="flex-1">{children}</div>
-          <Toaster />
-        </div>
+        <AnalyticsProvider locale={locale}>
+          <div className="flex min-h-screen flex-col font-sans overflow-y-auto overflow-x-hidden md:overflow-x-visible">
+            <Navigation />
+            <div className="flex-1">{children}</div>
+            <Toaster />
+          </div>
+        </AnalyticsProvider>
       </ThemeProvider>
     </NextIntlClientProvider>
   )

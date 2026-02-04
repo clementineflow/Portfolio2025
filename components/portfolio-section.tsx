@@ -10,6 +10,7 @@ import Image from "next/image"
 
 import type { Locale } from "@/lib/i18n/config"
 import { prefixPathWithLocale } from "@/lib/i18n/routing"
+import { trackProjectClick } from "@/lib/analytics"
 
 export function PortfolioSection() {
   const [activeFilter, setActiveFilter] = useState("All")
@@ -136,7 +137,7 @@ export function PortfolioSection() {
       : projects.filter((project) => (project.categories as string[] | undefined)?.includes(activeFilter))
 
   return (
-    <section id="work" className="py-24 px-6 bg-muted/30">
+    <section id="work" data-section="portfolio" className="py-24 px-6 bg-muted/30">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-8">
           <h2 className="font-serif font-bold text-4xl md:text-5xl text-foreground mb-4">My Projects</h2>
@@ -147,11 +148,10 @@ export function PortfolioSection() {
             <button
               key={category.id}
               onClick={() => setActiveFilter(category.id)}
-              className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 cursor-pointer ${
-                activeFilter === category.id
-                  ? "bg-foreground text-background"
-                  : "bg-background text-foreground hover:bg-muted border border-border/50"
-              }`}
+              className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 cursor-pointer ${activeFilter === category.id
+                ? "bg-foreground text-background"
+                : "bg-background text-foreground hover:bg-muted border border-border/50"
+                }`}
             >
               {isEnglish ? category.labelEn : category.label}
             </button>
@@ -163,7 +163,7 @@ export function PortfolioSection() {
             const displayTitle = isEnglish && project.titleEn ? project.titleEn : project.title
             const displayDescription =
               isEnglish && project.descriptionEn ? project.descriptionEn : project.description
-            
+
             const displayTags = isEnglish && project.tagsEn ? project.tagsEn : project.tags
             const categoryLabel = displayTags[0] ?? "Project"
             const additionalTags = displayTags.slice(1)
@@ -172,9 +172,8 @@ export function PortfolioSection() {
 
             const card = (
               <article
-                className={`${baseClasses} ${
-                  project.link ? "cursor-pointer" : "cursor-not-allowed opacity-80 hover:opacity-90"
-                }`}
+                className={`${baseClasses} ${project.link ? "cursor-pointer" : "cursor-not-allowed opacity-80 hover:opacity-90"
+                  }`}
                 onClick={project.link ? undefined : handleWorkInProgressClick}
                 onMouseMove={project.link ? undefined : handleMouseMove}
                 onMouseEnter={project.link ? undefined : handleMouseEnter}
@@ -223,7 +222,11 @@ export function PortfolioSection() {
             return (
               <div key={index} className="relative h-full">
                 {projectHref ? (
-                  <Link href={projectHref} className="block h-full">
+                  <Link
+                    href={projectHref}
+                    className="block h-full"
+                    onClick={() => trackProjectClick(project.title, locale)}
+                  >
                     {card}
                   </Link>
                 ) : (

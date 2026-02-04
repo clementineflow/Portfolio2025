@@ -14,7 +14,7 @@ export default function ContactSection() {
   const resumeUrl = locale === "en" ? resumeUrlEn : resumeUrlZh
 
   return (
-    <section id="contact" className="py-20 px-6">
+    <section id="contact" data-section="contact" className="py-20 px-6">
       <div className="max-w-2xl mx-auto text-center">
         <h2 className="text-4xl font-bold font-serif">{t("title")}</h2>
         <p className="mt-6 text-lg text-muted-foreground leading-relaxed">{t("body")}</p>

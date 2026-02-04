@@ -73,7 +73,7 @@ export function ColleaguesSection() {
   ]
 
   return (
-    <section id="colleagues" className="bg-[#FBF5EC] py-16 md:py-20 px-6">
+    <section id="colleagues" data-section="colleagues" className="bg-[#FBF5EC] py-16 md:py-20 px-6">
       <div className="max-w-6xl mx-auto">
         <header className="max-w-3xl mx-auto text-center space-y-3">
           <h2 className="text-3xl md:text-4xl font-semibold text-gray-900">Words from Colleagues</h2>
@@ -91,9 +91,8 @@ export function ColleaguesSection() {
                 <p className="text-base text-gray-800 leading-7">{isEnglish ? feedback.quoteEn : feedback.quote}</p>
                 <figcaption className="mt-6 flex items-center gap-4">
                   <div
-                    className={`flex h-12 w-12 items-center justify-center rounded-full text-sm font-medium text-[#1F2937] ${
-                      AVATAR_COLORS[index % AVATAR_COLORS.length]
-                    }`}
+                    className={`flex h-12 w-12 items-center justify-center rounded-full text-sm font-medium text-[#1F2937] ${AVATAR_COLORS[index % AVATAR_COLORS.length]
+                      }`}
                   >
                     {feedback.initials}
                   </div>
@@ -112,25 +111,21 @@ export function ColleaguesSection() {
           {marqueeRows.map((row, rowIndex) => (
             <div key={`row-${rowIndex}`} className="relative overflow-hidden">
               <div
-                className={`colleagues-marquee-track flex gap-6 ${
-                  rowIndex === 0 ? "colleagues-marquee-left" : "colleagues-marquee-right"
-                }`}
+                className={`colleagues-marquee-track flex gap-6 ${rowIndex === 0 ? "colleagues-marquee-left" : "colleagues-marquee-right"
+                  }`}
               >
                 {[...row, ...row].map((feedback, itemIndex) => (
                   <figure
                     key={`${feedback.id}-${itemIndex}`}
-                    className={`shrink-0 rounded-xl bg-white/90 p-6 backdrop-blur-sm flex h-full flex-col justify-between ${
-                      rowIndex === 0 ? "min-h-[220px]" : ""
-                    } ${
-                      feedback.id === "teammate-d" ? "w-[280px]" : feedback.id === "teammate-e" ? "w-[260px]" : "w-[320px]"
-                    }`}
+                    className={`shrink-0 rounded-xl bg-white/90 p-6 backdrop-blur-sm flex h-full flex-col justify-between ${rowIndex === 0 ? "min-h-[220px]" : ""
+                      } ${feedback.id === "teammate-d" ? "w-[280px]" : feedback.id === "teammate-e" ? "w-[260px]" : "w-[320px]"
+                      }`}
                   >
                     <p className="text-base text-gray-800 leading-7">{isEnglish ? feedback.quoteEn : feedback.quote}</p>
                     <figcaption className="mt-6 flex items-center gap-4">
                       <div
-                        className={`flex h-12 w-12 items-center justify-center rounded-full text-sm font-medium text-[#1F2937] ${
-                          AVATAR_COLORS[(itemIndex + rowIndex) % AVATAR_COLORS.length]
-                        }`}
+                        className={`flex h-12 w-12 items-center justify-center rounded-full text-sm font-medium text-[#1F2937] ${AVATAR_COLORS[(itemIndex + rowIndex) % AVATAR_COLORS.length]
+                          }`}
                       >
                         {feedback.initials}
                       </div>
