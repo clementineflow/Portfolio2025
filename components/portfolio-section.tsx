@@ -36,6 +36,22 @@ export function PortfolioSection() {
       link: "/case-studies/review-optimization",
     },
     {
+      title: "flowie | 數位插花創作與分享網站",
+      titleEn: "Flowie: A Digital Flower Arranging & Sharing Website",
+      description:
+        "一人快速完成產品定義與上線迭代，打造低門檻的數位插花體驗，讓使用者數位花藝創作取代文字，傳遞情感。",
+      descriptionEn:
+        "Independently built from product definition to live iteration: a low-barrier digital floral experience.",
+      image: "/images/Frame 73.jpg",
+      backgroundColor: "#F0FFF4",
+      tags: ["Vibe Coding", "Indie Product", "產品策略"],
+      tagsEn: ["Vibe Coding", "Indie Product", "Product Strategy"],
+      categories: ["Playground"],
+      year: "2026",
+      readTime: "3 min read",
+      link: "/case-studies/flowie",
+    },
+    {
       title: "價格方案介面改版優化",
       titleEn: "Pricing Plan Interface Optimization",
       description: "透過定義關鍵訊息並調整資訊層級，提升行銷素材效果，使促銷組合優惠轉換率成長 2%。",
@@ -129,6 +145,7 @@ export function PortfolioSection() {
     { id: "產品策略規劃", label: "產品策略規劃", labelEn: "Product Strategy & Planning" },
     { id: "B2B SaaS", label: "B2B SaaS", labelEn: "B2B SaaS" },
     { id: "使用者研究與體驗優化", label: "使用者研究與體驗優化", labelEn: "User Research & UX Optimization" },
+    { id: "Playground", label: "Playground", labelEn: "Playground" },
   ]
 
   const filteredProjects =
@@ -183,13 +200,15 @@ export function PortfolioSection() {
                   className="relative aspect-[16/10] overflow-hidden"
                   style={{ backgroundColor: project.backgroundColor ?? "#FBF5EC" }}
                 >
-                  <Image
-                    src={project.image}
-                    alt={displayTitle}
-                    fill
-                    className={project.imagePadding ? `object-contain ${project.imagePadding}` : "object-contain"}
-                    sizes="(min-width: 1024px) 360px, 100vw"
-                  />
+                  {project.image && (
+                    <Image
+                      src={project.image}
+                      alt={displayTitle}
+                      fill
+                      className={project.imagePadding ? `object-contain ${project.imagePadding}` : "object-contain"}
+                      sizes="(min-width: 1024px) 360px, 100vw"
+                    />
+                  )}
                 </div>
                 <div className="p-5 flex flex-col gap-4 flex-1">
                   {categoryLabel && (
