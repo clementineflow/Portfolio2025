@@ -1,5 +1,5 @@
 import type React from "react"
-import type { Metadata } from "next"
+import type { Metadata, Viewport } from "next"
 import { Analytics } from "@vercel/analytics/react"
 import "./globals.css"
 
@@ -15,6 +15,10 @@ export const metadata: Metadata = {
     icon: "/favicon.ico",
     apple: "/apple-touch-icon.png",
   },
+}
+
+export const viewport: Viewport = {
+  colorScheme: "light",
 }
 
 export default function RootLayout({
